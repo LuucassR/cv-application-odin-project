@@ -1,0 +1,283 @@
+:root {
+  --primary: #2563eb;       /* Azul moderno */
+  --primary-dark: #1e40af;  /* Azul oscuro para hover */
+  --bg-app: #f3f4f6;        /* Gris muy suave para el fondo */
+  --bg-paper: #ffffff;      /* Blanco puro */
+  --sidebar-cv: #1e293b;    /* Color oscuro para el lateral del CV */
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-radius: 12px;
+  --shadow-soft: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-paper: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-app);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif; 
+  color: var(--text-main);
+  padding: 2rem;
+  line-height: 1.5;
+}
+
+.Container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr; 
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.InfoContainer {
+  background: var(--bg-paper);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 2rem; 
+}
+
+.InfoContainer h1 {
+  font-size: 1.8rem;
+  color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.InfoContainer section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.InfoContainer section:hover {
+  border-color: var(--primary);
+}
+
+.InfoContainer h2 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: -0.5rem;
+}
+
+input {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+input:focus {
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  outline: none;
+}
+
+/* Botones */
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(37, 99, 235, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.CurriculumVitae {
+  background: white;
+  aspect-ratio: 210/297; 
+  min-height: 800px;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 32% 68%; 
+  grid-template-rows: auto 1fr; 
+  padding: 0; 
+}
+
+.CurriculumVitae .CV-Title {
+  grid-column: 1 / -1; 
+  background: white;
+  padding: 2.5rem 2rem;
+  border-bottom: 2px solid #f3f4f6;
+  text-align: left;
+}
+
+.CurriculumVitae .CV-Title h1 {
+    font-size: 2.5rem;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.CurriculumVitae .CV-Title h2 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 500;
+    margin-top: 0.5rem;
+}
+
+.SidebarLeft {
+  background-color: var(--sidebar-cv);
+  color: white;
+  padding: 2rem;
+  grid-row: 2 / -1; 
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.SidebarLeft h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.8);
+}
+
+.Contact, .Languages, .Education {
+  border: none;
+  text-align: left;
+}
+
+.Contact p, .Languages p, .Education p {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+}
+
+.MainContent {
+  padding: 2.5rem;
+  grid-row: 2 / -1;
+  grid-column: 2 / 3;
+}
+
+.WorkExperience {
+  border: none; 
+  text-align: left;
+}
+
+.WorkExperience h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.WorkExperience h3::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: #e5e7eb;
+}
+
+.job-item {
+    margin-bottom: 2rem;
+}
+
+.job-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.job-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1000px) {
+  .Container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .InfoContainer {
+    width: 100%;
+    position: static;
+    max-width: 1000px;
+  }
+
+  .CurriculumVitae {
+    width: 100%;
+    aspect-ratio: unset; 
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .CurriculumVitae .CV-Title {
+      grid-column: 1;
+      text-align: center;
+  }
+  
+  .SidebarLeft {
+      grid-column: 1;
+      grid-row: 2;
+      padding: 2rem;
+  }
+  
+  .MainContent {
+      grid-column: 1;
+      grid-row: 3;
+  }
+}
